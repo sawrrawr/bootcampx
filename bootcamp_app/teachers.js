@@ -6,6 +6,9 @@ const pool = new Pool ({
   host: 'localhost',
   database: 'bootcampx'
 });
+const cohortName = process.argv[2];
+// Store all potentially malicious values in an array.
+const values = [`%${cohortName}%`];
 pool.query(`
 SELECT DISTINCT teachers.name as teacher, cohorts.name as cohort
 FROM teachers
@@ -14,7 +17,7 @@ JOIN students ON student_id = students.id
 JOIN cohorts ON cohort_id = cohorts.id
 WHERE cohorts.name = '${process.argv[2] || 'JUL02'}'
 ORDER BY teacher;
-`)
+`, values)
 .then(res => {
   console.log(res.rows);
   })
