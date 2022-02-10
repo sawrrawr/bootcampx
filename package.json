@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/sawrrawr/bootcampx/issues"
   },
-  "homepage": "https://github.com/sawrrawr/bootcampx#readme"
+  "homepage": "https://github.com/sawrrawr/bootcampx#readme",
+  "dependencies": {
+    "pg": "^8.7.3"
+  }
 }
